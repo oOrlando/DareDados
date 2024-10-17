@@ -110,6 +110,9 @@
                         if (item.includes("Documento Principal") && index > 0) {
                             dataRow['CÓDIGO DE BARRAS'] = items[index - 1]; 
                         }
+                        if (item.includes("08 -") && index > 0) {
+                            dataRow['LOTE'] = items[index - 1]; 
+                        }
                     });
                 }
             }
