@@ -113,6 +113,12 @@
                         if (item.includes("08 -") && index > 0) {
                             dataRow['LOTE'] = items[index - 1]; 
                         }
+                        if (item.includes("Data de Vencimento") && index + 1 < items.length) {
+                            dataRow['RENAVAM'] = items[index + 1]; 
+                        }
+                        if (item.includes("Observações") && index + 1 < items.length) {
+                            dataRow['CLASSIFICAÇÃO'] = items[index + 1]; 
+                        }
                     });
                 }
             }
@@ -161,7 +167,7 @@
             const workbook = XLSX.utils.book_new();
 
             // Adicionar a planilha ao workbook
-            XLSX.utils.book_append_sheet(workbook, worksheet, 'Dados PDFs');
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'RelatorioDares');
 
             // Gerar arquivo Excel como binário
             const excelBinary = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
